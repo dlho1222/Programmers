@@ -5,8 +5,6 @@ class Solution {
             var sum = 0
             for (i in num_list.indices){
                 multiple *= num_list[i]
-            }
-            for (i in num_list.indices){
                 sum += num_list[i]
             }
             if(multiple<sum*sum) answer++
