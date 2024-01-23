@@ -1,4 +1,5 @@
 class Solution {
-        fun solution(myString: String): String=
-            myString.mapIndexed { index, c -> if(c == 'a' || c == 'A') c.uppercase() else c.lowercase() }.joinToString("")
+        fun solution(myString: String): String =
+            myString.map { it -> if (it == 'a' || it == 'A') it.uppercase() else it.lowercase() }
+                .joinToString("")
     }
