@@ -1,10 +1,8 @@
- class Solution {
-        fun solution(dot: IntArray): Int {
-            var answer = 0
-            if (dot[0] > 0 && dot[1] > 0) answer = 1
-            else if (dot[0] < 0 && dot[1] > 0) answer = 2
-            else if (dot[0] < 0 && dot[1] < 0) answer = 3
-            else if (dot[0] > 0 && dot[1] < 0) answer = 4
-            return answer
+class Solution {
+        fun solution(dot: IntArray): Int = when {
+            dot[0] > 0 && dot[1] > 0 -> 1
+            dot[0] < 0 && dot[1] > 0 -> 2
+            dot[0] < 0 && dot[1] < 0 -> 3
+            else -> 4
         }
     }
