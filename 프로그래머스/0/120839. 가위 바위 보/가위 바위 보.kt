@@ -4,8 +4,7 @@ class Solution {
                 when (it) {
                     '2' -> 0
                     '0' -> 5
-                    '5' -> 2
-                    else -> 0
+                    else -> 2
                 }
             }.joinToString("")
     }
