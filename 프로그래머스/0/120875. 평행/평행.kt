@@ -6,8 +6,7 @@ class Solution {
             ) 1 else 0
         }
 
-        fun slope(p0: IntArray, p1: IntArray): Double {
-            return (p0[1] - p1[1]).toDouble() / (p0[0] - p1[0]).toDouble()
+        fun slope(dots1: IntArray, dots2: IntArray): Double {
+            return (dots1[1] - dots2[1]).toDouble() / (dots1[0] - dots2[0]).toDouble()
         }
-
     }
