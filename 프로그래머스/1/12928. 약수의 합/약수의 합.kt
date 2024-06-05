@@ -1,13 +1,3 @@
 class Solution {
-    fun solution(n: Int): Int {
-        var answer = 0
-
-        for(i in 1..n){
-            if(n%i == 0){
-                answer += i 
-            }
-        }
-
-        return answer
+        fun solution(n: Int): Int = (1..n).sumOf { if (n % it == 0) it else 0 }
     }
-}
