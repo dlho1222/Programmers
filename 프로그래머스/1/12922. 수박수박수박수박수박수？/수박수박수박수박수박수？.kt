@@ -1,9 +1,3 @@
 class Solution {
-        fun solution(n: Int): String {
-            var answer =StringBuilder("")
-            for(i in 0 until n){
-                if(i % 2 == 0) answer.append("수") else answer.append("박")
-            }
-            return answer.toString()
-        }
+        fun solution(n: Int): String = (1..n).joinToString("") { if (it % 2 == 0) "박" else "수" }
     }
