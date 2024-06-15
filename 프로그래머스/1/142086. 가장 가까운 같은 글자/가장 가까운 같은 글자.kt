@@ -1,15 +1,5 @@
 class Solution {
-        fun solution(s: String): IntArray {
-            var answer = IntArray(s.length) { -1 }
-            val charIndexMap = mutableMapOf<Char, Int>()
-            for (i in s.indices) {
-                val char = s[i]
-                if (charIndexMap.contains(char)) {
-                    val lastIndex = charIndexMap[char]!!
-                    answer[i] = i - lastIndex
-                }
-                charIndexMap[char] = i
-            }
-            return answer
-        }
+        fun solution(s: String): IntArray = s.withIndex()
+            .map { (i, c) -> s.slice(0 until i).lastIndexOf(c).let { if (it >= 0) i - it else -1 } }
+            .toIntArray()
     }
