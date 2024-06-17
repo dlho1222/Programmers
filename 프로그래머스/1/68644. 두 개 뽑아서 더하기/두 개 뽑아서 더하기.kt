@@ -1,5 +1,5 @@
 class Solution {
         fun solution(numbers: IntArray): IntArray =
-            numbers.indices.flatMap { j -> (j + 1 until numbers.size).map { i -> numbers[i] + numbers[j] } }
-                .toSet().sorted().toIntArray()
+            numbers.indices.flatMap { i -> (i + 1 until numbers.size).map { j -> numbers[i] + numbers[j] } }
+                .toSortedSet().toIntArray()
     }
