@@ -1,9 +1,4 @@
 class Solution {
-        fun solution(array: IntArray, commands: Array<IntArray>): IntArray {
-            var answer = intArrayOf()
-            for(i in commands.indices){
-                answer += array.copyOfRange(commands[i][0]-1,commands[i][1]).sorted()[commands[i][2]-1]
-            }
-            return answer
-        }
+        fun solution(array: IntArray, commands: Array<IntArray>): IntArray =
+            commands.map { array.slice(it[0] - 1..it[1] - 1).sorted()[it[2] - 1] }.toIntArray()
     }
