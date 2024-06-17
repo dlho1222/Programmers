@@ -1,19 +1,17 @@
 class Solution {
         fun solution(food: IntArray): String {
-            var answer = StringBuilder("")
-            var count = 0
-            for(i in 1 until food.size){
-                if(food[i].div(2)>=1){
-                    count = food[i].div(2)
-                    for(j in 1 .. count){
-                        answer.append(i)
-                    }
+            val result: StringBuffer = StringBuffer("")
+            for (i in 1 until food.size) {
+                for (j in 0 until food[i] / 2) {
+                    result.append(i)
                 }
             }
-            answer.append(answer.toString().reversed())
-            answer.insert(answer.length.div(2),0)
-          
-
-            return answer.toString()
+            result.append(0)
+            for (i in food.size - 1 downTo 1) {
+                for (j in 0 until food[i] / 2) {
+                    result.append(i)
+                }
+            }
+            return result.toString()
         }
     }
