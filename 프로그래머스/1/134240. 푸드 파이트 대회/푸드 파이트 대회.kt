@@ -1,17 +1,7 @@
 class Solution {
-        fun solution(food: IntArray): String {
-            val result: StringBuffer = StringBuffer("")
-            for (i in 1 until food.size) {
-                for (j in 0 until food[i] / 2) {
-                    result.append(i)
-                }
-            }
-            result.append(0)
-            for (i in food.size - 1 downTo 1) {
-                for (j in 0 until food[i] / 2) {
-                    result.append(i)
-                }
-            }
-            return result.toString()
+        fun solution(food: IntArray): String = (1 until food.size).joinToString("") { i ->
+            i.toString().repeat(food[i] / 2)
+        } + "0" + (food.size - 1 downTo 1).joinToString("") { i ->
+            i.toString().repeat(food[i] / 2)
         }
     }
