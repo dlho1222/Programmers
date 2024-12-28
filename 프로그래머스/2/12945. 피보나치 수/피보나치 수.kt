@@ -1,9 +1,7 @@
 class Solution {
-        fun solution(n: Int): Int {
-            val fibonacci = mutableListOf(0, 1)
+        fun solution(n: Int): Int = mutableListOf(0, 1).apply {
             for (i in 2..n) {
-                fibonacci.add((fibonacci[i - 1] + fibonacci[i - 2]) % 1234567)
+                add((this[i - 1] + this[i - 2]) % 1234567)
             }
-            return fibonacci.last()
-        }
+        }.last()
     }
