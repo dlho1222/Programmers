@@ -11,7 +11,6 @@ class Solution {
                 val (date, type) = privacy.split(" ")
                 val (year, month, day) = date.split(".").map { it.toInt() }
                 val privacyTotal = (year * 12 * 28) + (month * 28) + day
-
                 if (todayTotal >= privacyTotal + (termMap[type] ?: 0)) {
                     index + 1
                 } else null
