@@ -1,20 +1,27 @@
 class Solution {
         fun solution(players: Array<String>, callings: Array<String>): Array<String> {
 
-            val playersMap = players.withIndex().associate { it.value to it.index }.toMutableMap()
+            val nameToIndex = mutableMapOf<String, Int>()
+            val indexToName = players.copyOf()
+
+            players.forEachIndexed { index, player ->
+                nameToIndex[player] = index
+            }
+
             callings.forEach { callingName ->
-                val currentRank = playersMap[callingName]!!
+                val currentRank = nameToIndex[callingName]!!
                 if (currentRank > 0) {
                     val previousRank = currentRank - 1
-                    val previousPlayer = players[previousRank]
-                    players[previousRank] = callingName
-                    players[currentRank] = previousPlayer
+                    val previousPlayer = indexToName[previousRank]
 
-                    playersMap[callingName] = previousRank
-                    playersMap[previousPlayer] = currentRank
+                    indexToName[previousRank] = callingName
+                    indexToName[currentRank] = previousPlayer
+
+                    nameToIndex[callingName] = previousRank
+                    nameToIndex[previousPlayer] = currentRank
                 }
             }
 
-            return players
+            return indexToName
         }
     }
