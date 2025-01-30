@@ -1,8 +1,12 @@
- class Solution {
+class Solution {
         fun solution(players: Array<String>, callings: Array<String>): Array<String> {
 
-            val nameToIndex = players.withIndex().associate { it.value to it.index }.toMutableMap()
+            val nameToIndex = mutableMapOf<String, Int>()
             val indexToName = players.copyOf()
+
+            players.forEachIndexed { index, player ->
+                nameToIndex[player] = index
+            }
 
             callings.forEach { callingName ->
                 val currentRank = nameToIndex[callingName]!!
