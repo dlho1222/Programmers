@@ -6,7 +6,6 @@ class Solution {
             op_end: String,
             commands: Array<String>
         ): String {
-            val answer: StringBuilder = StringBuilder("")
             val videoLength = video_len.split(":").map { it.toInt() }.let { (it[0] * 60) + it[1] }
             val position = pos.split(":").map { it.toInt() }.let { (it[0] * 60) + it[1] }
             val openingStart = op_start.split(":").map { it.toInt() }.let { (it[0] * 60) + it[1] }
@@ -39,19 +38,6 @@ class Solution {
                 }
             }
 
-            val minute = currentPosition / 60
-            val seconds = currentPosition % 60
-            if (minute < 10) {
-                answer.append("0${minute}:")
-            } else {
-                answer.append("${minute}:")
-            }
-
-            if (seconds < 10) {
-                answer.append("0${seconds}")
-            } else {
-                answer.append(seconds)
-            }
-            return answer.toString()
+            return "%02d:%02d".format(currentPosition / 60, currentPosition % 60)
         }
     }
