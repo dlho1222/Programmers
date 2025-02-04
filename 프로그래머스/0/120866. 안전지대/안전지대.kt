@@ -2,6 +2,8 @@ class Solution {
         fun solution(board: Array<IntArray>): Int {
             val n = board.size
             val danger = Array(n) { BooleanArray(n) }
+            var safeArea = 0
+
             for (i in 0 until n) {
                 for (j in 0 until n) {
                     if (board[i][j] == 1) {
@@ -17,10 +19,9 @@ class Solution {
                     }
                 }
             }
-            var safeArea = 0
-            for (i in 0 until n) {
-                for (j in 0 until n) {
-                    if (!danger[i][j]) safeArea++
+            for (i in 0 until n){
+                for (j in 0 until n){
+                    if(!danger[i][j]) safeArea++
                 }
             }
             return safeArea
