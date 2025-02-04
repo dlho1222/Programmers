@@ -2,15 +2,14 @@ class Solution {
         fun solution(code: String): String {
             val ret: StringBuilder = StringBuilder()
             var mode = false
-            code.forEachIndexed { index, code ->
-                if (code == '1') {
+            for (i in code.indices) {
+                val char = code[i]
+                if (char == '1') {
                     mode = !mode
-                    return@forEachIndexed
+                    continue
                 }
-                if (!mode && index % 2 == 0) {
-                    ret.append(code)
-                } else if (mode && index % 2 != 0) {
-                    ret.append(code)
+                if ((i % 2 == 0) != mode) {
+                    ret.append(char)
                 }
             }
 
