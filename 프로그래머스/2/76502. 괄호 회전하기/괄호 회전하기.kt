@@ -1,27 +1,22 @@
-import java.util.LinkedList
-import java.util.Stack
-
-    class Solution {
+class Solution {
         fun solution(s: String): Int {
-            var answer: Int = 0
-            val queue = LinkedList<Char>()
-            s.forEach { queue.add(it) }
-            for (i in s.indices) {
-                queue.add(queue.pop())
-                if (isValid(queue)) answer++
+            var answer = 0
+            val n = s.length
+            for (start in 0 until n) {
+                if (isValid(s, start, n)) answer++
             }
-
             return answer
         }
 
-        fun isValid(rotation: LinkedList<Char>): Boolean {
-            val stack = Stack<Char>()
-            for (char in rotation) {
+        fun isValid(s: String, start: Int, n: Int): Boolean {
+            val stack = ArrayDeque<Char>()
+            for (i in 0 until n) {
+                val char = s[(start + i) % n]
                 when (char) {
-                    '{', '(', '[' -> stack.push(char)
-                    '}' -> if (stack.isEmpty() || stack.pop() != '{') return false
-                    ')' -> if (stack.isEmpty() || stack.pop() != '(') return false
-                    ']' -> if (stack.isEmpty() || stack.pop() != '[') return false
+                    '{', '(', '[' -> stack.addLast(char)
+                    '}' -> if (stack.isEmpty() || stack.removeLast() != '{') return false
+                    ')' -> if (stack.isEmpty() || stack.removeLast() != '(') return false
+                    ']' -> if (stack.isEmpty() || stack.removeLast() != '[') return false
                 }
             }
             return stack.isEmpty()
