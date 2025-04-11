@@ -1,22 +1,21 @@
 class Solution {
         fun solution(order: IntArray): Int {
-            val belt = ArrayDeque<Int>()
             var orderIdx = 0
             var box = 1
+            val belt = ArrayDeque<Int>()
             val n = order.size
             while (box <= n) {
-                if(order[orderIdx] == box){
+                if (box == order[orderIdx]) {
                     orderIdx++
-                    while (belt.isNotEmpty() && orderIdx<n && belt.last() == order[orderIdx]){
+                    while (orderIdx < n && belt.isNotEmpty() && belt.last() == order[orderIdx]) {
                         belt.removeLast()
                         orderIdx++
                     }
-                }else{
+                } else {
                     belt.addLast(box)
                 }
                 box++
             }
-
             return orderIdx
         }
     }
