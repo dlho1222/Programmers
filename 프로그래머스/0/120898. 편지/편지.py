@@ -1,0 +1,1 @@
+solution = lambda s : len(s) * 2 
