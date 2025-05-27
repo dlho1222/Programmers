@@ -1,5 +1,5 @@
 def solution(slice, n):
     answer = 0
-    div = divmod(n, slice)
-    answer = div[0] + 1 if div[1] > 0 else div[0]
+    d, m = divmod(n, slice)
+    answer = d + 1 if m > 0 else d
     return answer
