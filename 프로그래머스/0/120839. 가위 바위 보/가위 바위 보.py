@@ -1,11 +1,3 @@
 def solution(rsp):
-    answer = []
-    for i in rsp:
-        if i == "2":
-            answer.append("0")
-        elif i == "0":
-            answer.append("5")
-        else:
-            answer.append("2")
-
-    return "".join(answer)
+    d = {"2": "0", "0": "5", "5": "2"}
+    return "".join(d[i] for i in rsp)
