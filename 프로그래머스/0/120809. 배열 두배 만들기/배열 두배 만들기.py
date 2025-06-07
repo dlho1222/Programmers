@@ -1,2 +1,2 @@
 def solution(numbers):
-    return [num * 2 for num in numbers]
+    return [number * 2 for number in numbers]
