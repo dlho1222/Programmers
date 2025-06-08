@@ -1,2 +1,2 @@
 def solution(n):
-    return [answer for answer in range(1, n + 1) if answer % 2 != 0]
+    return [odd for odd in range(n+1) if odd % 2 != 0]
